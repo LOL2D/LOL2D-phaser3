@@ -1,12 +1,6 @@
 import Dom from '../utils/Dom.js';
 import { Menu } from './Menu.js';
-
-const assets = {
-  yasuo: 'assets/images/characters/yasuo.png',
-  lux: 'assets/images/characters/lux.png',
-  jinx: 'assets/images/characters/jinx.png',
-  blitzcrank: 'assets/images/characters/blitzcrank.png',
-};
+import { assets } from '../utils/Config.js';
 
 const Loading = function (_) {
   const assetsCount = Object.keys(assets).length;
@@ -16,8 +10,8 @@ const Loading = function (_) {
     const checkFinish = () => {
       if (loadedCount == assetsCount) {
         setTimeout(() => {
-          Dom.loadingDiv.style.display = 'none';
-          this.sceneManager.showScene(Menu);
+          // Dom.loadingDiv.style.display = 'none';
+          // this.sceneManager.showScene(Menu);
         }, 2000);
       }
     };
