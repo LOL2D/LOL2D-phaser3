@@ -1,4 +1,4 @@
-import { Game } from './js/Game.js';
+import { Game } from './Game.js';
 
 window.onload = function () {
   const { p5 } = window;
