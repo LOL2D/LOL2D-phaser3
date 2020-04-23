@@ -1,3 +1,3 @@
 import { DoranRing } from './DoranRing.js';
 
-export {};
+export { DoranRing };
