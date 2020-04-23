@@ -1,6 +1,7 @@
 class LuaHoLy {
   constructor(champion) {
     this.champion = champion;
+    
   }
 }
 
