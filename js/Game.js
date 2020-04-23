@@ -1,4 +1,4 @@
-import { SceneManager } from '../libs/sceneManager.js';
+import { SceneManager } from './libs/sceneManager.js';
 import { Loading } from './scenes/Loading.js';
 
 const Game = function (_) {
