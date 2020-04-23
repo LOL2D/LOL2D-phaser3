@@ -1,27 +1,26 @@
 import Dom from '../utils/Dom.js';
 import { Menu } from './Menu.js';
-import { assets } from '../utils/Config.js';
+import { assetUrls } from '../stores/Config.js';
+import { addAsset } from '../stores/GameData.js';
 
 const Loading = function (_) {
-  const assetsCount = Object.keys(assets).length;
+  const assetsCount = Object.keys(assetUrls).length;
   let loadedCount = 0;
 
   this.enter = function () {
     const checkFinish = () => {
-      if (loadedCount == assetsCount) {
+      if (loadedCount === assetsCount) {
         setTimeout(() => {
-          Dom.loadingDiv.style.display = 'none';
+          Dom.hide(Dom.loadingDiv);
           this.sceneManager.showScene(Menu);
         }, 2000);
       }
     };
 
-    this.sceneManager.assets = {};
+    for (let key in assetUrls) {
+      let url = assetUrls[key];
 
-    for (let key in assets) {
-      let url = assets[key];
-
-      this.sceneManager.assets[key] = _.loadImage(
+      const image = _.loadImage(
         url,
         // on success
         (e) => {
@@ -38,6 +37,8 @@ const Loading = function (_) {
           console.log(e);
         }
       );
+
+      addAsset(key, image);
     }
   };
 };
