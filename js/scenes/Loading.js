@@ -10,8 +10,8 @@ const Loading = function (_) {
     const checkFinish = () => {
       if (loadedCount == assetsCount) {
         setTimeout(() => {
-          // Dom.loadingDiv.style.display = 'none';
-          // this.sceneManager.showScene(Menu);
+          Dom.loadingDiv.style.display = 'none';
+          this.sceneManager.showScene(Menu);
         }, 2000);
       }
     };
