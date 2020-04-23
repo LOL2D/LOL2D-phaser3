@@ -2,7 +2,7 @@
   "name": "LOL2D",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "js/main.js",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -20,7 +20,7 @@
     "url": "git+https://github.com/HoangTran0410/LOL2D.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Hoang Tran",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/HoangTran0410/LOL2D/issues"
