@@ -1,8 +1,18 @@
+// import * as abilities from '../abilities/Abilities.js';
+import { LuaHoLy } from '../abilities/Abilities.js';
+
 class Ahri {
-  constructor() {}
+  constructor() {
+    console.log(Ahri.infomations);
+
+    // for (let abi in abilities) {
+    //   console.log(abilities[abi]);
+    // }
+  }
 }
 
-Ahri.infomation = {
+// static properties
+Ahri.infomations = {
   info: {
     name: 'Ahri',
     nameVietNamese: 'Hồ ly chín đuôi',
@@ -51,7 +61,7 @@ Ahri.infomation = {
   },
   abilities: {
     P: '', // passive - thụ động - nội tại
-    Q: '',
+    Q: LuaHoLy,
     E: '',
     W: '',
     R: '',

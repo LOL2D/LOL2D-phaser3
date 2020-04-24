@@ -1,7 +1,6 @@
 class LuaHoLy {
   constructor(champion) {
     this.champion = champion;
-    
   }
 }
 
@@ -15,3 +14,5 @@ LuaHoLy.infomation = {
     'Các kỹ năng của Ahri tích cộng dồn Hút Hồn khi trúng kẻ địch (tối đa mỗi lần tung chiêu). Ở cộng dồn, Quả Cầu Ma Thuật kế tiếp của Ahri hồi cho cô (+) máu mỗi khi trúng 1 kẻ địch.',
   ],
 };
+
+export { LuaHoLy };
