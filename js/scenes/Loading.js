@@ -10,10 +10,8 @@ const Loading = function (_) {
   this.enter = function () {
     const checkFinish = () => {
       if (loadedCount === assetsCount) {
-        setTimeout(() => {
-          Dom.hide(Dom.loadingDiv);
-          this.sceneManager.showScene(Menu);
-        }, 2000);
+        Dom.hide(Dom.loadingDiv);
+        this.sceneManager.showScene(Menu);
       }
     };
 
