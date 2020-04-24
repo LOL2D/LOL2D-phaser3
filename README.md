@@ -1,5 +1,9 @@
 # LOL2D
 
+## Chơi thử ngay tại đây: [Demo Link](https://j2team.dev/go/8cdf0675)
+
+## GamePlay của trò chơi: [GamePlay](https://www.youtube.com/watch?v=yXC97XTBN7I)
+
 ## Features có thể có trong v2 - luôn cập nhật ý tưởng từ các bạn:
 
 > Ý tưởng là ý tưởng, còn làm được hay không thì thời gian trả lời nhé :
