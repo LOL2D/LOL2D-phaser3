@@ -1,9 +1,8 @@
-import { Game } from './Game.js';
+import { LOL2D } from './LOL2D.js';
 
 window.onload = function () {
   const { p5 } = window;
-
   p5.disableFriendlyErrors = true;
 
-  const game = new p5(Game);
+  new p5(LOL2D);
 };

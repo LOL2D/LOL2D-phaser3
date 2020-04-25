@@ -1,4 +1,4 @@
-import { getAsset } from '../stores/GameData.js';
+import { getAssetP5Image } from '../stores/Global.js';
 import { Ahri } from '../classes/champions/Ahri.js';
 
 const Menu = function (_) {
@@ -11,9 +11,8 @@ const Menu = function (_) {
     _.fill(255);
 
     arhi = new Ahri();
-    console.log(arhi);
 
-    yasuo = getAsset('yasuo');
+    yasuo = getAssetP5Image('yasuo');
   };
 
   this.draw = function () {

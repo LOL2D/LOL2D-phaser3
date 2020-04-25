@@ -1,7 +1,7 @@
 import Dom from '../utils/Dom.js';
 import { Menu } from './Menu.js';
 import { assetUrls } from '../stores/Config.js';
-import { addAsset } from '../stores/GameData.js';
+import { addAssetP5Image } from '../stores/Global.js';
 
 const Loading = function (_) {
   const assetsCount = Object.keys(assetUrls).length;
@@ -36,7 +36,7 @@ const Loading = function (_) {
         }
       );
 
-      addAsset(key, image);
+      addAssetP5Image(key, image);
     }
   };
 };
