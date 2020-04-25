@@ -1,16 +1,7 @@
-const Global = {
-  assets: {
-    p5Images: {},
-  },
+export const Global = {
+  assets: {},
   players: [
     // Champion: class
   ],
+  p5,
 };
-
-export function addAssetP5Image(key, image) {
-  Global.assets.p5Images[key] = image;
-}
-
-export function getAssetP5Image(key) {
-  return Global.assets.p5Images[key];
-}

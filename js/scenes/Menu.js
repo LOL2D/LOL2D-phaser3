@@ -1,8 +1,9 @@
-import { getAssetP5Image } from '../stores/Global.js';
 import { Ahri } from '../classes/champions/Ahri.js';
+import { Global } from '../stores/Global.js';
 
-const Menu = function (_) {
-  let yasuo, arhi;
+const Menu = function () {
+  const { p5: _ } = Global;
+  let bg;
 
   this.enter = function () {
     _.imageMode(_.CENTER);
@@ -10,16 +11,16 @@ const Menu = function (_) {
     _.textSize(20);
     _.fill(255);
 
-    arhi = new Ahri();
+    let arhi = new Ahri();
 
-    yasuo = getAssetP5Image('yasuo');
+    bg = Global.assets['ahri_bg'];
   };
 
   this.draw = function () {
-    _.image(yasuo, _.width / 2, _.height / 2);
+    _.image(bg, _.width / 2, _.height / 2);
 
-    _.background(30, 200);
-    _.text('The project is under development', _.width / 2, _.height / 2);
+    _.background(30, 100);
+    _.text('This project is under development', _.width / 2, _.height / 2);
   };
 };
 

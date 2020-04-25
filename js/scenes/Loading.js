@@ -1,17 +1,20 @@
 import Dom from '../utils/Dom.js';
 import { Menu } from './Menu.js';
 import { assetUrls } from '../stores/Config.js';
-import { addAssetP5Image } from '../stores/Global.js';
+import { Global } from '../stores/Global.js';
 
-const Loading = function (_) {
+const Loading = function () {
+  const { p5: _ } = Global;
   const assetsCount = Object.keys(assetUrls).length;
   let loadedCount = 0;
 
   this.enter = function () {
     const checkFinish = () => {
       if (loadedCount === assetsCount) {
-        Dom.hide(Dom.loadingDiv);
-        this.sceneManager.showScene(Menu);
+        setTimeout(() => {
+          Dom.hide(Dom.loadingDiv);
+          this.sceneManager.showScene(Menu);
+        }, 2000);
       }
     };
 
@@ -36,7 +39,7 @@ const Loading = function (_) {
         }
       );
 
-      addAssetP5Image(key, image);
+      Global.assets[key] = image;
     }
   };
 };
