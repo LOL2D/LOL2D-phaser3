@@ -1,7 +1,7 @@
 import { SceneManager } from './libs/sceneManager.js';
 import { Loading } from './scenes/Loading.js';
 
-const Game = function (_) {
+const LOL2D = function (_) {
   _.setup = function () {
     _.createCanvas(window.innerWidth, window.innerHeight);
 
@@ -15,4 +15,4 @@ const Game = function (_) {
   };
 };
 
-export { Game };
+export { LOL2D };
