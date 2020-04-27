@@ -16,22 +16,22 @@ function SceneManager(p) {
   // If you don't call this method, you need to manually wire events
   this.wire = function () {
     const P5Events = [
-      "mouseClicked",
-      "mousePressed",
-      "mouseReleased",
-      "mouseMoved",
-      "mouseDragged",
-      "doubleClicked",
-      "mouseWheel",
-      "keyPressed",
-      "keyReleased",
-      "keyTyped",
-      "touchStarted",
-      "touchMoved",
-      "touchEnded",
-      "deviceMoved",
-      "deviceTurned",
-      "deviceShaken",
+      'mouseClicked',
+      'mousePressed',
+      'mouseReleased',
+      'mouseMoved',
+      'mouseDragged',
+      'doubleClicked',
+      'mouseWheel',
+      'keyPressed',
+      'keyReleased',
+      'keyTyped',
+      'touchStarted',
+      'touchMoved',
+      'touchEnded',
+      'deviceMoved',
+      'deviceTurned',
+      'deviceShaken',
     ];
 
     var me = this;
@@ -68,9 +68,10 @@ function SceneManager(p) {
     var o = {
       fnScene: fnScene,
       oScene: oScene,
-      hasSetup: "setup" in oScene,
-      hasEnter: "enter" in oScene,
-      hasDraw: "draw" in oScene,
+      hasSetup: 'setup' in oScene,
+      hasEnter: 'enter' in oScene,
+      hasDraw: 'draw' in oScene,
+      hasExit: 'exit' in oScene,
       setupExecuted: false,
       enterExecuted: false,
     };
@@ -112,6 +113,9 @@ function SceneManager(p) {
 
     // Re-arm the enter function at each show of the scene
     o.enterExecuted = false;
+
+    // Execute exit event on current scene
+    this.scene && this.scene.hasExit && this.scene.oScene.exit();
 
     this.scene = o;
 
@@ -174,12 +178,12 @@ function SceneManager(p) {
 
   // Legacy method... preserved for maintaining compatibility
   this.mousePressed = function () {
-    this.handleEvent("mousePressed");
+    this.handleEvent('mousePressed');
   };
 
   // Legacy method... preserved for maintaining compatibility
   this.keyPressed = function () {
-    this.handleEvent("keyPressed");
+    this.handleEvent('keyPressed');
   };
 }
 
