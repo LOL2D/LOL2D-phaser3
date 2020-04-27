@@ -3,5 +3,5 @@ export const Global = {
   players: [
     // Champion: class
   ],
-  p5,
+  p5, // instant variable of p5.js
 };

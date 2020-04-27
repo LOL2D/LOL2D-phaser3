@@ -1,27 +1,22 @@
-import { Ahri } from '../classes/champions/Ahri.js';
+import Champions from '../classes/champions/Champions.js';
 import { Global } from '../stores/Global.js';
+import { Dom } from '../utils/Dom.js';
 
 const Menu = function () {
-  const { p5: _ } = Global;
-  let bg;
+  let ahri;
 
   this.enter = function () {
-    _.imageMode(_.CENTER);
-    _.textAlign(_.CENTER, _.CENTER);
-    _.textSize(20);
-    _.fill(255);
+    console.log(Champions);
 
-    let arhi = new Ahri();
-
-    bg = Global.assets['ahri_bg'];
+    ahri = new Champions.Ahri();
   };
 
   this.draw = function () {
-    _.image(bg, _.width / 2, _.height / 2);
-
-    _.background(30, 100);
-    _.text('This project is under development', _.width / 2, _.height / 2);
+    Global.p5.background(0);
+    ahri.show();
   };
+
+  this.keyPressed = function () {};
 };
 
 export { Menu };

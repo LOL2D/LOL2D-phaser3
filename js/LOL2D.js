@@ -4,9 +4,9 @@ import { Global } from './stores/Global.js';
 
 const LOL2D = function (_) {
   _.setup = function () {
-    _.createCanvas(window.innerWidth, window.innerHeight);
+    Global.p5 = _; // save instant of p5
 
-    Global.p5 = _;
+    _.createCanvas(window.innerWidth, window.innerHeight);
 
     const sceneManager = new SceneManager(Global.p5);
     sceneManager.wire();

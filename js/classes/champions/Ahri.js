@@ -2,7 +2,7 @@
 import { Classes } from './Classes.js';
 import { Champion } from './Champion.js';
 import { LuaHoLy } from '../abilities/Abilities.js';
-
+import { Global } from '../../stores/Global.js';
 class Ahri extends Champion {
   constructor() {
     super();
@@ -10,11 +10,13 @@ class Ahri extends Champion {
     this.stats = this.getStats(Ahri.default.stats);
     this.abilities = this.getAbilities(Ahri.default.abilities);
 
+    this.avatar = Global.assets['yasuo'];
+
     console.log(this);
   }
 
   show() {
-    
+    Global.p5.image(this.avatar, Global.p5.width / 2, Global.p5.height / 2);
   }
 }
 
