@@ -1,27 +1,22 @@
-import { getAsset } from '../stores/GameData.js';
-import { Ahri } from '../classes/champions/Ahri.js';
+import Champions from '../classes/champions/Champions.js';
+import { Global } from '../stores/Global.js';
+import { Dom } from '../utils/Dom.js';
 
-const Menu = function (_) {
-  let yasuo, arhi;
+const Menu = function () {
+  let ahri;
 
   this.enter = function () {
-    _.imageMode(_.CENTER);
-    _.textAlign(_.CENTER, _.CENTER);
-    _.textSize(20);
-    _.fill(255);
+    console.log(Champions);
 
-    arhi = new Ahri();
-    console.log(arhi);
-
-    yasuo = getAsset('yasuo');
+    ahri = new Champions.Ahri();
   };
 
   this.draw = function () {
-    _.image(yasuo, _.width / 2, _.height / 2);
-
-    _.background(30, 200);
-    _.text('The project is under development', _.width / 2, _.height / 2);
+    Global.p5.background(0);
+    ahri.show();
   };
+
+  this.keyPressed = function () {};
 };
 
 export { Menu };

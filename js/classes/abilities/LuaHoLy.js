@@ -1,5 +1,8 @@
-class LuaHoLy {
+import { Ability } from './Ability.js';
+
+class LuaHoLy extends Ability {
   constructor(champion) {
+    super();
     this.champion = champion;
   }
 }

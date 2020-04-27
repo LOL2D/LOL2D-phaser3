@@ -1,24 +1,28 @@
-import Dom from '../utils/Dom.js';
+import { Dom } from '../utils/Dom.js';
 import { Menu } from './Menu.js';
 import { assetUrls } from '../stores/Config.js';
-import { addAsset } from '../stores/GameData.js';
+import { Global } from '../stores/Global.js';
 
-const Loading = function (_) {
+const Loading = function () {
   const assetsCount = Object.keys(assetUrls).length;
-  let loadedCount = 0;
 
   this.enter = function () {
+    Dom.utils.show(Dom.elements.loadingDiv);
+
+    let loadedCount = 0;
+
     const checkFinish = () => {
       if (loadedCount === assetsCount) {
-        Dom.hide(Dom.loadingDiv);
-        this.sceneManager.showScene(Menu);
+        setTimeout(() => {
+          this.sceneManager.showScene(Menu);
+        }, 0);
       }
     };
 
     for (let key in assetUrls) {
       let url = assetUrls[key];
 
-      const image = _.loadImage(
+      const image = Global.p5.loadImage(
         url,
         // on success
         (e) => {
@@ -36,8 +40,14 @@ const Loading = function (_) {
         }
       );
 
-      addAsset(key, image);
+      Global.assets[key] = image;
     }
+
+    Global.p5.background(30);
+  };
+
+  this.exit = function () {
+    Dom.utils.hide(Dom.elements.loadingDiv);
   };
 };
 

@@ -1,3 +1,3 @@
-import { Arhi } from './Ahri.js';
+import { Ahri } from './Ahri.js';
 
-export { Arhi };
+export default { Ahri };
