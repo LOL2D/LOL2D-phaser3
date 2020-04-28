@@ -6,24 +6,24 @@ import { Global } from '../../stores/Global.js';
 
 class Ahri extends Champion {
   constructor(config = {}) {
-    super(config);
-
     const {
       skin = Ahri.default.skins.default,
       stats = Ahri.default.stats,
       abilities = Ahri.default.abilities,
     } = config;
 
-    this.skin = this.getSkin(skin);
-    this.stats = this.getStats(stats);
-    this.abilities = this.getAbilities(abilities);
+    super({ skin, stats, abilities });
   }
 
-  show(p5) {
-    p5.image(
-      this.skin,
-      Math.random() * p5.width,
-      Math.random() * p5.height
+  getDefault() {
+    return Ahri.default;
+  }
+
+  show() {
+    Global.p5.image(
+      this.skin.avatar,
+      Math.random() * Global.p5.width,
+      Math.random() * Global.p5.height
     );
   }
 }

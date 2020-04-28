@@ -3,23 +3,20 @@ import { Global } from '../../stores/Global.js';
 import { Types } from '../Types.js';
 
 class Champion {
-  constructor(config = {}) {
-    const {} = config;
-
+  constructor({ skin, stats, abilities }) {
     this.type = Types.Champion;
+
+    this.skin = this.getSkin(skin);
+    this.stats = this.getStats(stats);
+    this.abilities = this.getAbilities(abilities);
   }
 
   getSkin(skinObj) {
-    return Global.assets[skinObj.avatar];
+    return { ...skinObj, avatar: Global.assets[skinObj.avatar] };
   }
 
   getStats(statsObj) {
-    const result_stats = {};
-    for (let stat in statsObj) {
-      result_stats[stat] = statsObj[stat];
-    }
-
-    return result_stats;
+    return { ...statsObj }; // clone object
   }
 
   getAbilities(abilitiesObj) {
