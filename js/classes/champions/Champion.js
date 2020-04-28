@@ -1,4 +1,5 @@
 // https://leagueoflegends.fandom.com/wiki/List_of_champions
+import { Global } from '../../stores/Global.js';
 import { Types } from '../Types.js';
 
 class Champion {
@@ -8,19 +9,28 @@ class Champion {
     this.type = Types.Champion;
   }
 
-  getStats(stats) {
+  getSkin(skinObj, championName) {
+    const key = `${championName} - ${skinObj.name}`;
+    if(!Global.assets[key]) {
+      Global.assets[key] = Global.p5.loadImage(skinObj.avatar);
+      console.log(Global.assets[key]);
+    }
+    return Global.assets[key];
+  }
+
+  getStats(statsObj) {
     const result_stats = {};
-    for (let stat in stats) {
-      result_stats[stat] = stats[stat];
+    for (let stat in statsObj) {
+      result_stats[stat] = statsObj[stat];
     }
 
     return result_stats;
   }
 
-  getAbilities(abilities) {
+  getAbilities(abilitiesObj) {
     const result_abilities = {};
-    for (let ability in abilities) {
-      let c = abilities[ability];
+    for (let ability in abilitiesObj) {
+      let c = abilitiesObj[ability];
 
       if (typeof c === 'function') {
         result_abilities[ability] = new c({ owner: this });
