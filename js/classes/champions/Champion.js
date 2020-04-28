@@ -1,10 +1,10 @@
 // https://leagueoflegends.fandom.com/wiki/List_of_champions
 import { Global } from '../../stores/Global.js';
-import { Types } from '../Types.js';
+import { Constants } from '../Constants.js';
 
 class Champion {
   constructor({ skin, stats, abilities }) {
-    this.type = Types.Champion;
+    this.type = Constants.Champion;
 
     this.skin = this.getSkin(skin);
     this.stats = this.getStats(stats);
