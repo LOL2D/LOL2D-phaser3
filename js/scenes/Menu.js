@@ -17,7 +17,9 @@ const Menu = function () {
     ahri2.show(Global.p5);
   };
 
-  this.keyPressed = function () {};
+  this.keyPressed = function () {
+    ahri.Q();
+  };
 };
 
 export { Menu };
