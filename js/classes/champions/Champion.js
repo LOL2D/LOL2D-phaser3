@@ -9,13 +9,8 @@ class Champion {
     this.type = Types.Champion;
   }
 
-  getSkin(skinObj, championName) {
-    const key = `${championName} - ${skinObj.name}`;
-    if(!Global.assets[key]) {
-      Global.assets[key] = Global.p5.loadImage(skinObj.avatar);
-      console.log(Global.assets[key]);
-    }
-    return Global.assets[key];
+  getSkin(skinObj) {
+    return Global.assets[skinObj.avatar];
   }
 
   getStats(statsObj) {

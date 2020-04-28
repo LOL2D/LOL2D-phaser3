@@ -8,15 +8,23 @@ class Ahri extends Champion {
   constructor(config = {}) {
     super(config);
 
-    const { skin = Ahri.default.skins.default } = config;
+    const {
+      skin = Ahri.default.skins.default,
+      stats = Ahri.default.stats,
+      abilities = Ahri.default.abilities,
+    } = config;
 
-    this.skin = this.getSkin(skin, 'Ahri');
-    this.stats = this.getStats(Ahri.default.stats);
-    this.abilities = this.getAbilities(Ahri.default.abilities);
+    this.skin = this.getSkin(skin);
+    this.stats = this.getStats(stats);
+    this.abilities = this.getAbilities(abilities);
   }
 
   show(p5) {
-    p5.image(this.skin, Math.random() * p5.width, Math.random() * p5.height / 2);
+    p5.image(
+      this.skin,
+      Math.random() * p5.width,
+      Math.random() * p5.height
+    );
   }
 }
 
@@ -35,7 +43,7 @@ Ahri.default = {
     default: {
       name: 'Mặc định',
       background: 'path/to/background',
-      avatar: 'assets/images/characters/AhriSquare.png',
+      avatar: '/assets/images/characters/ahri_square.png',
     },
     1: {},
   },
