@@ -1,26 +1,28 @@
 // https://leagueoflegends.fandom.com/wiki/List_of_champions
-import { Types } from '../Types.js';
+import { Global } from '../../stores/Global.js';
+import { Constants } from '../Constants.js';
 
 class Champion {
-  constructor(config = {}) {
-    const {} = config;
+  constructor({ skin, stats, abilities }) {
+    this.type = Constants.Champion;
 
-    this.type = Types.Champion;
+    this.skin = this.getSkin(skin);
+    this.stats = this.getStats(stats);
+    this.abilities = this.getAbilities(abilities);
   }
 
-  getStats(stats) {
-    const result_stats = {};
-    for (let stat in stats) {
-      result_stats[stat] = stats[stat];
-    }
-
-    return result_stats;
+  getSkin(skinObj) {
+    return { ...skinObj, avatar: Global.assets[skinObj.avatar] };
   }
 
-  getAbilities(abilities) {
+  getStats(statsObj) {
+    return { ...statsObj }; // clone object
+  }
+
+  getAbilities(abilitiesObj) {
     const result_abilities = {};
-    for (let ability in abilities) {
-      let c = abilities[ability];
+    for (let ability in abilitiesObj) {
+      let c = abilitiesObj[ability];
 
       if (typeof c === 'function') {
         result_abilities[ability] = new c({ owner: this });

@@ -1,9 +1,14 @@
-import { Types } from "../Types.js";
+import { Constants } from '../Constants.js';
 
 class Ability {
-  constructor() {
+  constructor({ owner, stats }) {
+    this.type = Constants.Ability;
+    this.owner = owner;
+    this.stats = this.getStats(stats);
+  }
 
-    this.type = Types.Ability;
+  getStats(statsObj) {
+    return { ...statsObj };
   }
 }
 

@@ -1,3 +1,3 @@
-import { LuaHoLy } from './LuaHoLy.js';
+import { OrbOfDeception } from './OrbOfDeception.js';
 
-export { LuaHoLy };
+export { OrbOfDeception };

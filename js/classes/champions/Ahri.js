@@ -1,22 +1,40 @@
 // import * as abilities from '../abilities/Abilities.js';
 import { Classes } from './Classes.js';
 import { Champion } from './Champion.js';
-import { LuaHoLy } from '../abilities/Abilities.js';
+import { OrbOfDeception } from '../abilities/Abilities.js';
 import { Global } from '../../stores/Global.js';
+
 class Ahri extends Champion {
-  constructor() {
-    super();
+  constructor(config = {}) {
+    const {
+      skin = Ahri.default.skins.default,
+      stats = Ahri.default.stats,
+      abilities = Ahri.default.abilities,
+    } = config;
 
-    this.stats = this.getStats(Ahri.default.stats);
-    this.abilities = this.getAbilities(Ahri.default.abilities);
+    super({ skin, stats, abilities });
+  }
 
-    this.avatar = Global.assets['yasuo'];
+  // test
+  Q() {
+    this.abilities.q.fire();
+  }
 
-    console.log(this);
+  getLevel() {
+    return 1;
+  }
+  // --- end test
+
+  getDefault() {
+    return Ahri.default;
   }
 
   show() {
-    Global.p5.image(this.avatar, Global.p5.width / 2, Global.p5.height / 2);
+    Global.p5.image(
+      this.skin.avatar,
+      Global.p5.width / 2,
+      Global.p5.height / 2
+    );
   }
 }
 
@@ -35,7 +53,7 @@ Ahri.default = {
     default: {
       name: 'Mặc định',
       background: 'path/to/background',
-      avatar: 'path/to/avatar',
+      avatar: '/assets/images/characters/ahri_square.png',
     },
     1: {},
   },
@@ -83,7 +101,7 @@ Ahri.default = {
   },
   abilities: {
     passive: null, // passive - thụ động - nội tại
-    q: LuaHoLy,
+    q: OrbOfDeception,
     w: null,
     e: null,
     r: null,
