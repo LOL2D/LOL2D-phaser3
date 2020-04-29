@@ -1,6 +1,6 @@
 import { Ability } from './Ability.js';
 import { Global } from '../../stores/Global.js';
-import { Constants } from '../Constants.js';
+import { Constants } from '../../stores/Constants.js';
 
 class OrbOfDeception extends Ability {
   constructor(config = {}) {
