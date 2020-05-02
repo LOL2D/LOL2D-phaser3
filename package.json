@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "js/main.js",
-  "dependencies": {},
+  "dependencies": {
+    "sat": "^0.8.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
