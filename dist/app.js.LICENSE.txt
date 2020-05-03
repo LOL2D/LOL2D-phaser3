@@ -1,0 +1,13 @@
+/*! ./src/app/index.js */
+
+/*! exports provided: StarfallGame */
+
+/*! no static exports found */
+
+/*!**************************!*\
+  !*** ./src/app/index.js ***!
+  \**************************/
+
+/*!********************************!*\
+  !*** multi ./src/app/index.js ***!
+  \********************************/
