@@ -1,7 +1,3 @@
-const InGame = function () {
-  this.enter = function () {
-    
-  };
-};
-
-export { InGame };
+export class InGame {
+  constructor() {}
+}
