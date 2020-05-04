@@ -1,13 +1,11 @@
-import Phaser from 'phaser';
+import './styles/main.css';
+import { App } from './app/app';
 
-var config = {
-  type: Phaser.CANVAS,
-  width: 800,
-  height: 600,
-  backgroundColor: '#010101',
-  parent: 'game',
-};
-
-window.onload = function() {
-  var game = new Phaser.Game(config);
+function runApp() {
+  const app = new App();
+  app.start();
 }
+
+window.onload = function () {
+  runApp();
+};
