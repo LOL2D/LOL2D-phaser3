@@ -1,18 +1,33 @@
 import { Scene } from 'phaser';
-import { SceneName } from "./Constants";
+import { SCENES } from '../constants';
 
-export class Boot extends Scene {
+import upheavalFnt from '../../assets/fonts/upheaval/converted-to-bitmap/font.fnt';
+import upheavalPng from '../../assets/fonts/upheaval/converted-to-bitmap/font.png';
+
+export default class Boot extends Scene {
   constructor() {
-    super({ key: SceneName.Boot });
+    super({ key: SCENES.BOOT });
   }
 
-  init() {
+  init() {}
 
-  }
   preload() {
-
+    // Font for preload
+    // ...fonts
+    this.load.bitmapFont('upheaval', upheavalPng, upheavalFnt);
   }
+
   create() {
-    this.scene.start(SceneName.Preload);
+    // this.text = this.add.bitmapText(
+    //   this.scale.width * 0.5,
+    //   this.scale.height * 0.5,
+    //   'upheaval',
+    //   'Bitmap Fonts!',
+    //   64
+    // );
+
+    // this.text.setOrigin(0.5);
+
+    this.scene.start(SCENES.PRELOAD);
   }
 }

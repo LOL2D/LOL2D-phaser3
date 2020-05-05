@@ -1,18 +1,29 @@
 import { Scene } from 'phaser';
-import { SceneName } from "./Constants";
+import { SCENES } from '../constants';
 
-export class Preload extends Scene {
+export default class Preload extends Scene {
   constructor() {
-    super({ key: SceneName.Preload });
+    super({ key: SCENES.PRELOAD });
   }
 
   init() {
-
+    // Globals
   }
+
   preload() {
+    // Create Loading Bar
+    this.createLoadingBar();
 
+    // Spritesheets
   }
+
   create() {
-    this.scene.start(SceneName.MainMenu);
+    this.scene.start(SCENES.MAINMENU);
+  }
+
+  createLoadingBar() {
+    // Title
+    // Progress text
+    // Progress bar
   }
 }

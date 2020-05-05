@@ -1,3 +1,3 @@
-export class InGame {
+export default class InGame {
   constructor() {}
 }

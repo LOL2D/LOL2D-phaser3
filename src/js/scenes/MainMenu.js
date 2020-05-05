@@ -1,20 +1,14 @@
 import { Scene } from 'phaser';
-import { SceneName } from './Constants';
+import { SCENES } from '../constants';
 
-export class MainMenu extends Scene {
+export default class MainMenu extends Scene {
   constructor() {
-    super({ key: SceneName.MainMenu });
+    super({ key: SCENES.MAINMENU });
   }
 
-  init() {}
+  init() {
+    // Globals
+  }
   preload() {}
-  create() {
-
-    console.log(this.scale);
-
-    this.text = this.add
-      .text(100, 100, 'Menu')
-      .setColor('#000');
-    this.text.setOrigin(0.5);
-  }
+  create() {}
 }
