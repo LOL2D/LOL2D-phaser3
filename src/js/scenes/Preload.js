@@ -17,7 +17,7 @@ export default class Preload extends Phaser.Scene {
     this.createLoadingBar();
 
     // loading assets
-    this.load.setBaseURL('http://labs.phaser.io');
+    this.load.setBaseURL('https://labs.phaser.io');
 
     this.load.image(TEXTURES.SKY, 'assets/skies/space3.png');
     this.load.image(TEXTURES.LOGO_PHASER, 'assets/sprites/phaser3-logo.png');
