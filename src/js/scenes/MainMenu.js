@@ -6,9 +6,11 @@ export default class MainMenu extends Scene {
     super({ key: SCENES.MAINMENU });
   }
 
-  init() {
-    // Globals
+  // init() {}
+
+  // preload() {}
+
+  create() {
+    this.scene.start(SCENES.INGAME);
   }
-  preload() {}
-  create() {}
 }

@@ -9,17 +9,21 @@ export default class App {
   }
 
   start() {
-    // Scenes
-    const scenes = [Boot, Preload, MainMenu, InGame];
-
     // Game config
     const config = {
       type: Phaser.AUTO,
-      scene: scenes,
+      scene: [Boot, Preload, MainMenu, InGame],
 
-      width: 800,
-      height: 600,
-      backgroundColor: '#000',
+      width: 1280,
+      height: 720,
+      backgroundColor: '0x101010',
+
+      physics: {
+        default: 'arcade',
+        arcade: {
+          // debug: true,
+        },
+      },
 
       disableContextMenu: true,
       scale: {
