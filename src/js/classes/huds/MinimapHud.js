@@ -1,5 +1,3 @@
 class MinimapHud {
-  constructor() {
-    
-  }
+  constructor() {}
 }

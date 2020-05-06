@@ -1,1 +1,1 @@
-export { OrbOfDeception } from './OrbOfDeception.js';
+export { OrbOfDeception } from './OrbOfDeception';

@@ -1,8 +1,8 @@
 // import * as abilities from '../abilities/Abilities.js';
-import { Classes } from './Classes.js';
+import { Classes } from './Classes';
 import { Champion } from './Champion.js';
-import { OrbOfDeception } from '../abilities/Abilities.js';
-import { Global } from '../../stores/Global.js';
+import { OrbOfDeception } from '../abilities/Abilities';
+import { Global } from '../../stores/Global';
 
 class Ahri extends Champion {
   constructor(config = {}) {

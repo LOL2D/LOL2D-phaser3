@@ -1,6 +1,6 @@
 // https://leagueoflegends.fandom.com/wiki/List_of_champions
-import { Global } from '../../stores/Global.js';
-import { Constants } from '../../stores/Constants.js';
+import { Global } from '../../stores/Global';
+import { Constants } from '../../stores/Constants';
 
 class Champion {
   constructor({ skin, stats, abilities }) {
@@ -21,8 +21,8 @@ class Champion {
 
   getAbilities(abilitiesObj) {
     const result_abilities = {};
-    for (let ability in abilitiesObj) {
-      let c = abilitiesObj[ability];
+    for (const ability in abilitiesObj) {
+      const c = abilitiesObj[ability];
 
       if (typeof c === 'function') {
         result_abilities[ability] = new c({ owner: this });

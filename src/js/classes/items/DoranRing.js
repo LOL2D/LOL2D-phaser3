@@ -1,11 +1,9 @@
 class DoranRing {
-  constructor() {
-    
-  }
+  constructor() {}
 }
 
 DoranRing.infomation = {
-  cost: 400
-}
+  cost: 400,
+};
 
 export { DoranRing };
