@@ -20,3 +20,5 @@ export const Constants = {
   Hud: 'Hud',
   Wall: 'Wall',
 };
+
+export default Constants;

@@ -19,10 +19,10 @@ class MapContainer {
   drawEdge() {
     // Vẽ biên
     // dùng 4 đỉnh đê vẽ hình chữ nhât
-    let topleft = { x: 0, y: 0 }; // đỉnh trên trái
-    let topright = { x: this.width, y: 0 }; // đỉnh trên phải
-    let botleft = { x: 0, y: this.height }; // đỉnh dưới trái
-    let botright = { x: this.width, y: this.height }; // đỉnh dưới phải
+    const topleft = { x: 0, y: 0 }; // đỉnh trên trái
+    const topright = { x: this.width, y: 0 }; // đỉnh trên phải
+    const botleft = { x: 0, y: this.height }; // đỉnh dưới trái
+    const botright = { x: this.width, y: this.height }; // đỉnh dưới phải
 
     Global.p5.stroke(255);
     Global.p5.strokeWeight(3);
@@ -37,16 +37,19 @@ class MapContainer {
   drawGrid() {
     Global.p5.stroke(100, 70);
     Global.p5.strokeWeight(3);
-    
-    let { x: left, y: top } = Global.camera.screenToWorld(0, 0);
-    let { x: right, y: bottom } = Global.camera.screenToWorld(Global.p5.width, Global.p5.height);
-    
+
+    const { x: left, y: top } = Global.camera.screenToWorld(0, 0);
+    const { x: right, y: bottom } = Global.camera.screenToWorld(
+      Global.p5.width,
+      Global.p5.height
+    );
+
     let delta = 1;
     for (let x = left; x < right; x += delta) {
       if (floor(x) % this.gridSize == 0) {
         /* while we found value of x that (x % this.gridSize == 0)
-                => delta will equal this.gridSize => shorter loop */
-        delta = this.gridSize;
+    cons          => delta will equal this.gridSize => shorter loop */
+        const delta = this.gridSize;
         Global.p5.line(x, top, x, bottom);
       }
     }

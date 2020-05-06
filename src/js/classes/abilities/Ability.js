@@ -1,4 +1,4 @@
-import { Constants } from '../../stores/Constants.js';
+import { Constants } from '../../stores/Constants';
 
 class Ability {
   constructor({ owner, stats }) {

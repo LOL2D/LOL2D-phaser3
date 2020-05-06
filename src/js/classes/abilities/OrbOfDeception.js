@@ -1,5 +1,5 @@
 import { Ability } from './Ability';
-import { Constants } from '../../stores/Constants.js';
+import { Constants } from '../../stores/Constants';
 
 class OrbOfDeception extends Ability {
   constructor(config = {}) {
