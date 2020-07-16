@@ -38,15 +38,15 @@ class Camera {
 
   // Chuyển đổi vị trí thực của vật thể (theo hệ toạ độ của mapgame) về vị trí trên màn hình (theo hệ toạ độ màn hình)
   worldToScreen(worldX, worldY) {
-    let screenX = (worldX - this.position.x) * this.scale + width * 0.5;
-    let screenY = (worldY - this.position.y) * this.scale + height * 0.5;
+    const screenX = (worldX - this.position.x) * this.scale + width * 0.5;
+    const screenY = (worldY - this.position.y) * this.scale + height * 0.5;
     return new SAT.Vector(screenX, screenY);
   }
 
   // Ngược lại worldToScreen
   screenToWorld(screenX, screenY) {
-    let worldX = (screenX - width * 0.5) / this.scale + this.position.x;
-    let worldY = (screenY - height * 0.5) / this.scale + this.position.y;
+    const worldX = (screenX - width * 0.5) / this.scale + this.position.x;
+    const worldY = (screenY - height * 0.5) / this.scale + this.position.y;
     return new SAT.Vector(worldX, worldY);
   }
 }
