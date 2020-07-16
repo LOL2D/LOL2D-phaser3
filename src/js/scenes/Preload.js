@@ -1,15 +1,11 @@
 import Phaser from 'phaser';
-import { SCENES, TEXTURES } from '../constants';
+import { SCENES, TEXTURES, FONTS } from '../constants';
+
+import logoImg from '../../assets/img/phaser-logo.png';
 
 export default class Preload extends Phaser.Scene {
   constructor() {
     super({ key: SCENES.PRELOAD });
-  }
-
-  init() {
-    // global
-    this.center_x = this.scale.width * 0.5;
-    this.center_y = this.scale.height * 0.5;
   }
 
   preload() {
@@ -17,100 +13,52 @@ export default class Preload extends Phaser.Scene {
     this.createLoadingBar();
 
     // loading assets
-    this.load.setBaseURL('https://labs.phaser.io');
-
-    this.load.image(TEXTURES.SKY, 'assets/skies/space3.png');
-    this.load.image(TEXTURES.LOGO_PHASER, 'assets/sprites/phaser3-logo.png');
-    this.load.image(TEXTURES.RED_PARTICLE, 'assets/particles/red.png');
-
-    for (let i = 0; i < 10; i += 1) {
-      this.load.image(`logo${i}`, 'assets/skies/space3.png');
-    }
-  }
-
-  create() {
-    setTimeout(() => {
-      this.scene.start(SCENES.MAINMENU);
-    }, 2000);
+    this.load.image(TEXTURES.LOGO_PHASER, logoImg);
   }
 
   createLoadingBar() {
-    // progress bar
-    const w = 320;
-    const h = 50;
-    const x = this.center_x - w * 0.5;
-    const y = this.center_y - h * 0.5;
-    const border = 10;
+    const x = this.game.config.width / 2;
+    const y = this.game.config.height / 2;
+    const w = 250;
+    const h = 40;
+    const border = 7;
 
-    const progressBar = this.add.graphics();
-    const progressBox = this.add.graphics();
-    progressBox.fillStyle(0x222222, 0.8);
-    progressBox.fillRect(x, y, w, h);
+    const left = x - w / 2;
+    const top = y - h / 2;
 
-    // progress text
-    // loading...text
-    const loadingText = this.make
-      .text({
-        x: this.center_x,
-        y: this.center_y - h,
-        text: 'Đang tải game',
-        style: {
-          font: '20px monospace',
-          color: '#ffffff',
-        },
-      })
-      .setOrigin(0.5, 0.5);
+    // bars
+    const progressBar = new Phaser.Geom.Rectangle(left, top, w, h);
+    const progressBarFill = new Phaser.Geom.Rectangle(
+      left + border,
+      top + border,
+      100,
+      0
+    );
 
-    // percent text
-    const percentText = this.make
-      .text({
-        x: this.center_x,
-        y: this.center_y,
-        text: '0%',
-        style: {
-          font: '18px monospace',
-          color: '#ffffff',
-        },
-      })
-      .setOrigin(0.5, 0.5);
+    this.graphics = this.add.graphics();
+    this.newGraphics = this.add.graphics();
 
-    // assets text
-    const assetText = this.make
-      .text({
-        x: this.center_x,
-        y: this.center_y + h,
-        text: '',
-        style: {
-          font: '13px monospace',
-          color: '#ffffff',
-        },
-      })
-      .setOrigin(0.5, 0.5);
+    this.graphics.fillStyle(0x303030, 1);
+    this.graphics.fillRectShape(progressBar);
 
-    // progress callback
+    this.newGraphics.fillStyle(0x767576, 1);
+    this.newGraphics.fillRectShape(progressBarFill);
+
+    // texts
+    // const percentText = this.add.bitmapText(x, y, FONTS.bitmapFont, '100%', 16);
+    // percentText.setOrigin(0.5);
+
+    // logo
+    const logo = this.add.image(x, y - 85, TEXTURES.LOL_LOGO);
+    logo.setOrigin(0.5);
+
+    // events
+    this.load.on(Phaser.Loader.Events.FILE_PROGRESS, (file) => {});
     this.load.on(Phaser.Loader.Events.PROGRESS, (value) => {
-      percentText.setText(`${Math.round(value * 100)}%`);
-      progressBar
-        .clear()
-        .fillStyle(0xffffff, 1)
-        .fillRect(
-          x + border,
-          y + border,
-          (w - border * 2) * value,
-          h - border * 2
-        );
-    });
-
-    this.load.on(Phaser.Loader.Events.FILE_PROGRESS, (file) => {
-      assetText.setText(`Đang tải tập tin: ${file.key}...`);
-    });
-
-    this.load.on(Phaser.Loader.Events.COMPLETE, () => {
-      // progressBar.destroy();
-      // progressBox.destroy();
-      // loadingText.destroy();
-      // percentText.destroy();
-      // assetText.destroy();
+      progressBarFill.setSize(value * (w - border * 2), h - border * 2);
+      this.newGraphics.clear();
+      this.newGraphics.fillStyle(0x767576, 1);
+      this.newGraphics.fillRectShape(progressBarFill);
     });
   }
 }

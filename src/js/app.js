@@ -17,6 +17,7 @@ export default class App {
       width: 1280,
       height: 720,
       backgroundColor: '0x101010',
+      // pixelArt: true,
 
       physics: {
         default: 'arcade',
