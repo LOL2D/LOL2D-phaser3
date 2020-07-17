@@ -6,14 +6,14 @@ export const SCENES = {
 };
 
 export const TEXTURES = {
-  LOGO_PHASER: 'LOGO_PHASER',
-  RED_PARTICLE: 'RED_PARTICLE',
-  SKY: 'SKY',
+  PHASER_LOGO: 'PHASER_LOGO',
   LOL_LOGO: 'LOL_LOGO',
 };
 
 export const FONTS = {
-  bitmapFont: 'BITMAPFONT',
+  BITMAP: 'BITMAPFONT',
+  PIXEL: 'PIXEL',
+  PIXELSHADOW: 'PIXELSHADOW',
 };
 
 export default {

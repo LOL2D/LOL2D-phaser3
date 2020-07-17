@@ -14,7 +14,7 @@ export default class MainMenu extends Phaser.Scene {
   create() {
     const button = new BasicButton({
       scene: this,
-      key: TEXTURES.LOGO_PHASER,
+      key: TEXTURES.PHASER_LOGO,
       up: 0,
       over: 1,
       down: 2,
@@ -31,6 +31,15 @@ export default class MainMenu extends Phaser.Scene {
     // this
 
     // this.scene.start(SCENES.INGAME);
+
+    // logo
+    const logo = this.add.image(55, 55, TEXTURES.LOL_LOGO);
+    logo.setOrigin(0.5);
+
+    // this.scale.startFullscreen();
+    // this.scale.stopFullscreen();
+
+    this.scale.lockOrientation(Phaser.Scale.LANDSCAPE);
   }
 
   onPressed() {

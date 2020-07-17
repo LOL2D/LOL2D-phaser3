@@ -1,9 +1,9 @@
 import { Scene } from 'phaser';
-import { SCENES, FONTS, TEXTURES } from '../constants';
+import { SCENES, TEXTURES, FONTS } from '../constants';
 
 import logo from '../../assets/img/lol-logo.png';
-import fontBitmapPng from '../../assets/fonts/font.png';
-import fontBitmapXml from '../../assets/fonts/font.xml';
+import pixelFontPng from '../../assets/fonts/pixel-shadow/font.png';
+import pixelFontXml from '../../assets/fonts/pixel-shadow/font.xml';
 
 export default class Boot extends Scene {
   constructor() {
@@ -12,7 +12,7 @@ export default class Boot extends Scene {
 
   preload() {
     this.load.image(TEXTURES.LOL_LOGO, logo);
-    this.load.bitmapFont(FONTS.bitmapFont, fontBitmapPng, fontBitmapXml);
+    this.load.bitmapFont(FONTS.PIXEL, pixelFontPng, pixelFontXml);
   }
 
   create() {

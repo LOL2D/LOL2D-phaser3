@@ -31,6 +31,7 @@ export default class App {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
       },
+      autoRound: false,
     };
 
     // Create game app
