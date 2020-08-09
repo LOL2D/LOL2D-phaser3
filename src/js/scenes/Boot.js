@@ -16,6 +16,6 @@ export default class Boot extends Scene {
   }
 
   create() {
-    this.scene.start(SCENES.PRELOAD);
+    this.scene.start(SCENES.PRELOADER);
   }
 }

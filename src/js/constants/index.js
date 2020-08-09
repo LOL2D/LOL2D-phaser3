@@ -1,6 +1,6 @@
 export const SCENES = {
   BOOT: 'BOOT',
-  PRELOAD: 'PRELOAD',
+  PRELOADER: 'PRELOADER',
   MAINMENU: 'MAINMENU',
   INGAME: 'INGAME',
 };
@@ -16,8 +16,15 @@ export const FONTS = {
   PIXELSHADOW: 'PIXELSHADOW',
 };
 
+export const COLORS = {
+  PRIMARY: 0x4e342e,
+  LIGHT: 0x7b5e57,
+  DARK: 0x260e04,
+};
+
 export default {
   SCENES,
   TEXTURES,
   FONTS,
+  COLORS,
 };
