@@ -1,8 +1,7 @@
 import Phaser from 'phaser';
 import { SCENES, TEXTURES, FONTS } from '../constants';
 
-import phaserLogo from '../../assets/img/phaser-logo.png';
-import yasuo from '../../assets/img/characters/yasuo.png';
+import { PhaserLogo, Yasuo } from '../../assets/AssetImage';
 
 export default class Preloader extends Phaser.Scene {
   constructor() {
@@ -14,9 +13,9 @@ export default class Preloader extends Phaser.Scene {
     this.createLoadingBar();
 
     // loading assets
-    this.load.image(TEXTURES.PHASER_LOGO, phaserLogo);
+    this.load.image(TEXTURES.PHASER_LOGO, PhaserLogo);
 
-    this.load.image('yasuo', yasuo);
+    this.load.image('yasuo', Yasuo);
   }
 
   createLoadingBar() {
@@ -70,7 +69,7 @@ export default class Preloader extends Phaser.Scene {
 
     // on file load
     this.load.on(Phaser.Loader.Events.FILE_PROGRESS, (file) => {
-      assetsText.setText(`Đang tải ${file.key}...`);
+      assetsText.setText(`Đang tải ${file.type} ${file.key}...`);
     });
 
     // onload
@@ -98,11 +97,9 @@ export default class Preloader extends Phaser.Scene {
       //     this.scene.start(SCENES.MAINMENU);
       //   },
       // });
-
       this.graphicsBarFill.destroy();
       this.graphicsBar.destroy();
       this.scene.start(SCENES.MAINMENU);
-
       // hide elements
       // this.tween = this.tweens.add({
       //   targets: [

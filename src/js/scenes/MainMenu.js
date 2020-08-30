@@ -1,48 +1,54 @@
 import Phaser from 'phaser';
-import { SCENES, TEXTURES } from '../constants';
-import { BasicButton } from '../helpers';
+import { SCENES, TEXTURES, FONTS } from '../constants';
 
 export default class MainMenu extends Phaser.Scene {
   constructor() {
     super({ key: SCENES.MAINMENU });
   }
 
-  // init() {}
-
-  // preload() {}
-
   create() {
-    const button = new BasicButton({
-      scene: this,
-      key: TEXTURES.PHASER_LOGO,
-      up: 0,
-      over: 1,
-      down: 2,
-      x: this.scale.width / 2,
-      y: this.scale.height / 2,
-    });
-
-    button.on(
-      Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN,
-      this.onPressed,
-      this
-    );
-
-    // this
-
-    // this.scene.start(SCENES.INGAME);
+    // variables
+    const centerX = this.game.config.width / 2;
+    const centerY = this.game.config.height / 2;
+    const circleSize = centerX > centerY ? centerX : centerY;
 
     // logo
-    const logo = this.add.image(55, 55, TEXTURES.LOL_LOGO);
+    const logo = this.add.image(centerX, centerY, TEXTURES.LOL_LOGO);
     logo.setOrigin(0.5);
 
-    // this.scale.startFullscreen();
-    // this.scale.stopFullscreen();
+    // play button
+    const playButton = this.add.bitmapText(
+      centerX,
+      centerY + 60,
+      FONTS.PIXEL,
+      'Play',
+      17
+    );
+    playButton.setOrigin(0.5);
+    playButton.setInteractive();
 
-    this.scale.lockOrientation(Phaser.Scale.LANDSCAPE);
-  }
+    // hover effect
+    playButton.on(Phaser.Input.Events.POINTER_OVER, () => {
+      playButton.setTint(0x00ff00);
+    });
+    playButton.on(Phaser.Input.Events.POINTER_OUT, () => {
+      playButton.setTint(0xffffff);
+    });
 
-  onPressed() {
-    console.log('I am pressed!');
+    // onclick play button
+    playButton.on(Phaser.Input.Events.POINTER_DOWN, () => {
+      // circle effect
+      const circle = this.add.circle(centerX, centerY + 60, 0, 0xffffff);
+      this.tween = this.tweens.add({
+        targets: circle,
+        radius: circleSize * 2,
+        delay: 200,
+        duration: 1000,
+        ease: 'easeOut',
+        onComplete: () => {
+          this.scene.start(SCENES.INGAME);
+        },
+      });
+    });
   }
 }

@@ -1,9 +1,8 @@
 import { Scene } from 'phaser';
 import { SCENES, TEXTURES, FONTS } from '../constants';
 
-import logo from '../../assets/img/lol-logo.png';
-import pixelFontPng from '../../assets/fonts/pixel-shadow/font.png';
-import pixelFontXml from '../../assets/fonts/pixel-shadow/font.xml';
+import logo from '../../assets/images/lol-logo.png';
+import { pixelFontPng, pixelFontXml } from '../../assets/AssetFont';
 
 export default class Boot extends Scene {
   constructor() {
