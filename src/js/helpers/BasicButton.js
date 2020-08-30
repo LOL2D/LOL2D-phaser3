@@ -18,7 +18,7 @@ export default class BasicButton extends Phaser.GameObjects.Sprite {
     scene.add.existing(this);
 
     // make interactive and set listeners
-    this.setInteractive();
+    this.setInteractive({ useHandCursor: true });
     this.on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, this.onDown, this);
     this.on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, this.onUp, this);
     this.on(Phaser.Input.Events.GAMEOBJECT_POINTER_OVER, this.onOver, this);
