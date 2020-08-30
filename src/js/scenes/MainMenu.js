@@ -43,7 +43,7 @@ export default class MainMenu extends Phaser.Scene {
         targets: circle,
         radius: circleSize * 2,
         delay: 200,
-        duration: 1000,
+        duration: 700,
         ease: 'easeOut',
         onComplete: () => {
           this.scene.start(SCENES.INGAME);
