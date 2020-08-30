@@ -44,8 +44,8 @@ export default class InGame extends Phaser.Scene {
       targets: rect,
       fillAlpha: 0,
       delay: 200,
-      duration: 1000,
-      ease: 'easeOut',
+      duration: 800,
+      ease: 'easeIn',
       onComplete: () => {
         // this.scene.start(SCENES.INGAME);
       },
