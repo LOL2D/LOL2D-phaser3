@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
+import UIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin';
+
 import { SCENES } from './constants';
-import { Boot, Preload, MainMenu, InGame } from './scenes';
+import { Boot, Preloader, MainMenu, InGame } from './scenes';
 
 export default class App {
   constructor() {
@@ -12,19 +14,18 @@ export default class App {
     // Game config
     const config = {
       type: Phaser.AUTO,
-      scene: [Boot, Preload, MainMenu, InGame],
-
       width: 1280,
       height: 720,
       backgroundColor: '0x101010',
       // pixelArt: true,
-
       physics: {
         default: 'arcade',
         arcade: {
-          // debug: true,
+          debug: false,
         },
       },
+
+      scene: [Boot, Preloader, MainMenu, InGame],
 
       disableContextMenu: true,
       scale: {
@@ -32,6 +33,17 @@ export default class App {
         autoCenter: Phaser.Scale.CENTER_BOTH,
       },
       autoRound: false,
+
+      // plugins
+      plugins: {
+        scene: [
+          {
+            key: 'rexUI',
+            plugin: UIPlugin,
+            mapping: 'rexUI',
+          },
+        ],
+      },
     };
 
     // Create game app
