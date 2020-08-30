@@ -1,20 +1,30 @@
 export const SCENES = {
   BOOT: 'BOOT',
-  PRELOAD: 'PRELOAD',
+  PRELOADER: 'PRELOADER',
   MAINMENU: 'MAINMENU',
   INGAME: 'INGAME',
 };
 
 export const TEXTURES = {
-  LOGO_PHASER: 'LOGO_PHASER',
-  RED_PARTICLE: 'RED_PARTICLE',
-  SKY: 'SKY',
+  PHASER_LOGO: 'PHASER_LOGO',
+  LOL_LOGO: 'LOL_LOGO',
 };
 
-export const FONTS = {};
+export const FONTS = {
+  BITMAP: 'BITMAPFONT',
+  PIXEL: 'PIXEL',
+  PIXELSHADOW: 'PIXELSHADOW',
+};
+
+export const COLORS = {
+  PRIMARY: 0x4e342e,
+  LIGHT: 0x7b5e57,
+  DARK: 0x260e04,
+};
 
 export default {
   SCENES,
   TEXTURES,
   FONTS,
+  COLORS,
 };

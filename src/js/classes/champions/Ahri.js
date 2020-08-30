@@ -1,10 +1,8 @@
-// import * as abilities from '../abilities/Abilities.js';
 import { Classes } from './Classes';
-import { Champion } from './Champion.js';
-import { OrbOfDeception } from '../abilities/Abilities';
-import { Global } from '../../stores/Global';
+import { Champion } from './Champion';
+import { OrbOfDeception } from '../abilities';
 
-class Ahri extends Champion {
+export default class Ahri extends Champion {
   constructor(config = {}) {
     const {
       skin = Ahri.default.skins.default,
@@ -29,13 +27,7 @@ class Ahri extends Champion {
     return Ahri.default;
   }
 
-  show() {
-    Global.p5.image(
-      this.skin.avatar,
-      Global.p5.width / 2,
-      Global.p5.height / 2
-    );
-  }
+  show() {}
 }
 
 // static properties
@@ -107,5 +99,3 @@ Ahri.default = {
     r: null,
   },
 };
-
-export { Ahri };

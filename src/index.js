@@ -1,10 +1,6 @@
 import App from './js/app';
 
-function runApp() {
+window.onload = () => {
   const app = new App();
   app.start();
-}
-
-window.onload = () => {
-  runApp();
 };
