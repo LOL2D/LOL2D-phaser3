@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { SCENES, FONTS, COLORS } from '../constants';
-import Player from '../classes/Player';
+import { HandCursorNew } from '../../assets/AssetImage';
+// import Player from '../classes/Player';
 
 export default class InGame extends Phaser.Scene {
   constructor() {
@@ -15,9 +16,11 @@ export default class InGame extends Phaser.Scene {
     const centerX = this.game.config.width / 2;
     const centerY = this.game.config.height / 2;
 
-    this.player = new Player({
-      scene: this,
-    });
+    this.input.setDefaultCursor(`url(${HandCursorNew}), default`);
+
+    // this.player = new Player({
+    //   scene: this,
+    // });
 
     const text = this.add.bitmapText(
       centerX,
