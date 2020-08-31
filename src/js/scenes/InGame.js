@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { SCENES, FONTS, COLORS } from '../constants';
-import Player from '../classes/Player';
+import { HandCursorNew } from '../../assets/AssetImage';
+// import Player from '../classes/Player';
 
 export default class InGame extends Phaser.Scene {
   constructor() {
@@ -15,9 +16,11 @@ export default class InGame extends Phaser.Scene {
     const centerX = this.game.config.width / 2;
     const centerY = this.game.config.height / 2;
 
-    this.player = new Player({
-      scene: this,
-    });
+    this.input.setDefaultCursor(`url(${HandCursorNew}), default`);
+
+    // this.player = new Player({
+    //   scene: this,
+    // });
 
     const text = this.add.bitmapText(
       centerX,
@@ -39,12 +42,33 @@ export default class InGame extends Phaser.Scene {
       blendMode: 'ADD',
     });
 
+    const size = 75;
+
     const logo = this.physics.add.image(400, 100, 'LolLogo');
-    logo.setVelocity(100, 200);
-    logo.setBounce(1, 1);
-    logo.setCollideWorldBounds(true);
+    logo.body.setCircle(size);
+    logo
+      .setSize(size, size)
+      .setDisplaySize(size, size)
+      .setVelocity(100, 200)
+      .setBounce(1, 1)
+      .setCollideWorldBounds(true);
 
     emitter.startFollow(logo);
+
+    // collide with mouse effect
+    const yasuo = this.physics.add.image(400, 400, 'Yasuo');
+    yasuo.body.setCircle(size);
+    yasuo
+      .setSize(size, size)
+      .setDisplaySize(size, size)
+      .setBounce(1, 1)
+      .setCollideWorldBounds(true);
+
+    this.physics.add.collider(logo, yasuo);
+
+    this.input.on(Phaser.Input.Events.POINTER_MOVE, (pointer) => {
+      this.physics.moveToObject(yasuo, pointer, 150);
+    });
 
     // fade in effect
     const rect = this.add.rectangle(
@@ -65,6 +89,4 @@ export default class InGame extends Phaser.Scene {
       },
     });
   }
-
-  // update() {}
 }
