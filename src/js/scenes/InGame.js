@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { SCENES, TEXTURES, FONTS } from '../constants';
+import { SCENES, FONTS, COLORS } from '../constants';
 import Player from '../classes/Player';
 
 export default class InGame extends Phaser.Scene {
@@ -19,9 +19,6 @@ export default class InGame extends Phaser.Scene {
       scene: this,
     });
 
-    const yasuo = this.add.image(centerX, centerY, 'yasuo');
-    yasuo.alpha = 0.5;
-
     const text = this.add.bitmapText(
       centerX,
       centerY,
@@ -32,13 +29,30 @@ export default class InGame extends Phaser.Scene {
     );
     text.setOrigin(0.5);
 
+    // physic effect
+    const particles = this.add.particles('BlueDot');
+
+    const emitter = particles.createEmitter({
+      speed: { min: 20, max: 150 },
+      scale: { start: 1, end: 0 },
+      lifespan: { min: 500, max: 2000 },
+      blendMode: 'ADD',
+    });
+
+    const logo = this.physics.add.image(400, 100, 'LolLogo');
+    logo.setVelocity(100, 200);
+    logo.setBounce(1, 1);
+    logo.setCollideWorldBounds(true);
+
+    emitter.startFollow(logo);
+
     // fade in effect
     const rect = this.add.rectangle(
       centerX,
       centerY,
       centerX * 2,
       centerY * 2,
-      0xffffff
+      COLORS.GRAY1
     );
     this.tweens.add({
       targets: rect,
@@ -47,33 +61,10 @@ export default class InGame extends Phaser.Scene {
       duration: 800,
       ease: 'easeIn',
       onComplete: () => {
-        // this.scene.start(SCENES.INGAME);
+        rect.destroy();
       },
     });
   }
 
-  update() {}
+  // update() {}
 }
-
-// const bg = this.add.image(
-//   this.scale.width * 0.5,
-//   this.scale.height * 0.5,
-//   TEXTURES.SKY
-// );
-// bg.setDisplaySize(this.scale.width, this.scale.height);
-
-// const particles = this.add.particles(TEXTURES.LOL_LOGO);
-
-// const emitter = particles.createEmitter({
-//   speed: 150,
-//   scale: { start: 1, end: 0 },
-//   blendMode: 'ADD',
-// });
-
-// const logo = this.physics.add.image(400, 100, TEXTURES.PHASER_LOGO);
-
-// logo.setVelocity(100, 200);
-// logo.setBounce(1, 1);
-// logo.setCollideWorldBounds(true);
-
-// emitter.startFollow(logo);

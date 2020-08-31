@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
-import UIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin';
+import rexPlugins from './utils/RexPlugins';
 
-import { SCENES } from './constants';
+import { SCENES, COLORS } from './constants';
 import { Boot, Preloader, MainMenu, InGame } from './scenes';
 
 export default class App {
@@ -13,11 +13,20 @@ export default class App {
   start() {
     // Game config
     const config = {
+      // basic
       type: Phaser.AUTO,
       width: 1280,
       height: 720,
-      backgroundColor: '0x101010',
-      // pixelArt: true,
+      backgroundColor: COLORS.DARKERBACKGOURND,
+      disableContextMenu: true,
+      scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+      },
+      autoRound: false,
+      pixelArt: true,
+
+      // physics
       physics: {
         default: 'arcade',
         arcade: {
@@ -25,25 +34,17 @@ export default class App {
         },
       },
 
+      // scenes
       scene: [Boot, Preloader, MainMenu, InGame],
 
-      disableContextMenu: true,
-      scale: {
-        mode: Phaser.Scale.FIT,
-        autoCenter: Phaser.Scale.CENTER_BOTH,
+      // dom
+      parent: 'phaser-app',
+      dom: {
+        createContainer: true,
       },
-      autoRound: false,
 
       // plugins
-      plugins: {
-        scene: [
-          {
-            key: 'rexUI',
-            plugin: UIPlugin,
-            mapping: 'rexUI',
-          },
-        ],
-      },
+      plugins: rexPlugins,
     };
 
     // Create game app

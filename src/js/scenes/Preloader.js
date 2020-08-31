@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
-import { SCENES, TEXTURES, FONTS } from '../constants';
+import { SCENES, FONTS, COLORS } from '../constants';
 
-import { PhaserLogo, Yasuo } from '../../assets/AssetImage';
+import * as Assets from '../../assets/AssetImage';
 
 export default class Preloader extends Phaser.Scene {
   constructor() {
@@ -13,20 +13,20 @@ export default class Preloader extends Phaser.Scene {
     this.createLoadingBar();
 
     // loading assets
-    this.load.image(TEXTURES.PHASER_LOGO, PhaserLogo);
-
-    this.load.image('yasuo', Yasuo);
+    Object.keys(Assets).forEach((key) => {
+      this.load.image(key, Assets[key]);
+    });
   }
 
   createLoadingBar() {
     const centerX = this.game.config.width / 2;
     const centerY = this.game.config.height / 2;
     const w = 250;
-    const h = 40;
-    const border = 7;
+    const h = 15;
+    const border = 4;
 
     const left = centerX - w / 2;
-    const top = centerY - h / 2;
+    const top = centerY - h / 2 + 35;
 
     // ==== UI ====
 
@@ -42,48 +42,49 @@ export default class Preloader extends Phaser.Scene {
     this.graphicsBar = this.add.graphics();
     this.graphicsBarFill = this.add.graphics();
 
-    this.graphicsBar.fillStyle(0x303030, 1);
+    this.graphicsBar.fillStyle(COLORS.DARKESTGOLD, 1);
     this.graphicsBar.fillRectShape(progressBar);
 
-    this.graphicsBarFill.fillStyle(0x767576, 1);
+    this.graphicsBarFill.fillStyle(COLORS.GOLD, 1);
     this.graphicsBarFill.fillRectShape(progressBarFill);
 
     // texts
-    const percentText = this.add.bitmapText(
-      centerX,
-      centerY - 5,
-      FONTS.PIXEL,
-      '100%',
-      15
-    );
-    percentText.setOrigin(0.5);
+    // const percentText = this.add.bitmapText(
+    //   centerX,
+    //   centerY - 5,
+    //   FONTS.PIXEL,
+    //   '100%',
+    //   15
+    // );
+    // percentText.setOrigin(0.5);
 
     const assetsText = this.add.bitmapText(
       10,
       this.game.config.height - 10,
       FONTS.PIXEL,
-      'Đang tải',
+      'Loading',
       13
     );
+    assetsText.setTint(COLORS.NORMALTEXTBLUE);
     assetsText.setOrigin(0, 1);
 
     // logo
-    const logo = this.add.image(centerX, centerY - 85, TEXTURES.LOL_LOGO);
+    const logo = this.add.image(centerX, centerY - 30, 'LolLogo');
     logo.setOrigin(0.5);
 
     // ==== EVENTS ====
 
     // on file load
     this.load.on(Phaser.Loader.Events.FILE_PROGRESS, (file) => {
-      assetsText.setText(`Đang tải ${file.type} ${file.key}...`);
+      assetsText.setText(`Loading ${file.type} ${file.key}...`);
     });
 
     // onload
     this.load.on(Phaser.Loader.Events.PROGRESS, (value) => {
-      percentText.setText(`${Math.floor(value * 100)}%`);
+      // percentText.setText(`${Math.floor(value * 100)}%`);
       progressBarFill.setSize(value * (w - border * 2), h - border * 2);
       this.graphicsBarFill.clear();
-      this.graphicsBarFill.fillStyle(0x767576, 1);
+      this.graphicsBarFill.fillStyle(COLORS.GOLD, 1);
       this.graphicsBarFill.fillRectShape(progressBarFill);
     });
 
@@ -94,13 +95,13 @@ export default class Preloader extends Phaser.Scene {
         targets: [
           this.graphicsBar,
           this.graphicsBarFill,
-          percentText,
+          // percentText,
           progressBarFill,
           assetsText,
         ],
         alpha: 0,
+        delay: 1000,
         duration: 500,
-        delay: 500,
         ease: 'Cubic',
         onComplete: () => {
           this.graphicsBar.destroy();
@@ -113,11 +114,11 @@ export default class Preloader extends Phaser.Scene {
         targets: logo,
         x: centerX,
         y: centerY,
+        delay: 1500,
         duration: 1000,
-        delay: 1000,
         ease: 'Cubic',
         onStart: () => {
-          percentText.setText('');
+          // percentText.setText('');
           assetsText.setText('');
         },
         onComplete: () => {
