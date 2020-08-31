@@ -24,7 +24,7 @@ export default class App {
         autoCenter: Phaser.Scale.CENTER_BOTH,
       },
       autoRound: false,
-      pixelArt: true,
+      // pixelArt: true,
 
       // physics
       physics: {
