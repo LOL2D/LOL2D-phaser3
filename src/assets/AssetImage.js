@@ -1,12 +1,17 @@
-import PhaserLogo from './images/phaser-logo.png';
-import LolLogo from './images/lol-logo.png';
-import GithubLogo from './images/github-logo.png';
-import FacebookLogo from './images/fb-logo.png';
-import BlueDot from './images/blue.png';
+// logo
+import PhaserLogo from './images/logos/phaser-logo.png';
+import LolLogo from './images/logos/lol-logo.png';
+import GithubLogo from './images/logos/github-logo.png';
+import FacebookLogo from './images/logos/fb-logo.png';
+
+// objects
+import BlueDot from './images/objects/blue.png';
 
 // cursors
-import HandCursor from './images/cursors/lolhand.cur';
-import HandCursorNew from './images/cursors/LeagueOfLegendsNew/LOL_cursor2.cur';
+import NormalCursor from './images/cursors/Summoner/normal.cur';
+import FightCursor from './images/cursors/Summoner/alt.cur';
+import ActivedCursor from './images/cursors/Summoner/link.cur';
+import BusyCursor from './images/cursors/Summoner/busy.ani';
 
 // Characters
 import Yasuo from './images/characters/yasuo.png';
@@ -17,7 +22,9 @@ export {
   GithubLogo,
   FacebookLogo,
   BlueDot,
-  HandCursor,
-  HandCursorNew,
+  NormalCursor,
+  FightCursor,
+  ActivedCursor,
+  BusyCursor,
   Yasuo,
 };
