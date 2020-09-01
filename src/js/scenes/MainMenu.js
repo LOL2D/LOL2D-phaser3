@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { NormalCursor, FightCursor } from '../../assets/AssetImage';
 import { SCENES, FONTS, COLORS } from '../constants';
 
 export default class MainMenu extends Phaser.Scene {
@@ -13,6 +14,8 @@ export default class MainMenu extends Phaser.Scene {
   }
 
   create() {
+    this.input.setDefaultCursor(`url(${NormalCursor}), default`);
+
     // logo
     const logo = this.add.image(this.centerX, this.centerY, 'LolLogo');
     logo.setOrigin(0.5);
@@ -34,8 +37,8 @@ export default class MainMenu extends Phaser.Scene {
     playButton.setAlpha(0);
     playButton.setOrigin(0.5);
     playButton.setInteractive({
-      // cursor: 'pointer',
-      useHandCursor: true,
+      cursor: `url(${FightCursor}), pointer`,
+      // useHandCursor: true,
     });
 
     // hover effect
