@@ -16,6 +16,7 @@ export default class Player {
     this.scene = scene;
     this.x = x;
     this.y = y;
+    this.playerObj = {};
 
     this.init();
   }
