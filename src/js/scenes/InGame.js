@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { SCENES, FONTS, COLORS } from '../constants';
 import { NormalCursor } from '../../assets/AssetImage';
+import Player from '../classes/Player';
 // import Player from '../classes/Player';
 
 export default class InGame extends Phaser.Scene {
@@ -12,18 +13,18 @@ export default class InGame extends Phaser.Scene {
   init() {
     this.centerX = this.game.config.width / 2;
     this.centerY = this.game.config.height / 2;
+    this.player = new Player({
+      x: this.centerX,
+      y: this.centerY,
+      name: 'Player1',
+      scene: this,
+    });
   }
 
   // preload() {}
 
   create() {
     this.input.setDefaultCursor(`url(${NormalCursor}), default`);
-
-    const player = this.doCreatePlayer();
-
-    // this.player = new Player({
-    //   scene: this,
-    // });
 
     const text = this.add.bitmapText(
       this.centerX,
@@ -89,25 +90,11 @@ export default class InGame extends Phaser.Scene {
         rect.destroy();
       },
     });
-
-    // Initialize Colliders
-    this.physics.add.collider([player]);
   }
 
-  // -- TEMPORARY FUNCTIONS --
-
-  doCreatePlayer() {
-    const player = this.physics.add.image(0, 0, 'Yasuo');
-    player.body.setCircle(25);
-    player.setPosition(this.centerX, this.centerY);
-
-    this.input.on(Phaser.Input.Events.POINTER_DOWN, (pointer) => {
-      this.plugins
-        .get('rexMoveTo')
-        .add(player, { speed: 100 })
-        .moveTo(pointer.position.x, pointer.position.y);
-    });
-
-    return player;
+  update() {
+    if (this.player) {
+      this.player.update();
+    }
   }
 }
