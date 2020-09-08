@@ -30,7 +30,7 @@ export default class App {
       physics: {
         default: 'arcade',
         arcade: {
-          debug: false,
+          debug: true,
         },
       },
 

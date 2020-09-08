@@ -97,10 +97,17 @@ export default class InGame extends Phaser.Scene {
   // -- TEMPORARY FUNCTIONS --
 
   doCreatePlayer() {
-    const player = this.add.circle();
+    const player = this.physics.add.image(0, 0, 'Yasuo');
+    player.body.setCircle(25);
     player.setPosition(this.centerX, this.centerY);
-    player.setRadius(25);
-    player.setFillStyle(0xff5f00, 1);
+
+    this.input.on(Phaser.Input.Events.POINTER_DOWN, (pointer) => {
+      this.plugins
+        .get('rexMoveTo')
+        .add(player, { speed: 100 })
+        .moveTo(pointer.position.x, pointer.position.y);
+    });
+
     return player;
   }
 }
