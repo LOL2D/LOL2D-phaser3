@@ -13,15 +13,24 @@ export default class Player {
       scene,
     } = config;
 
+    // scene chứa player
     this.scene = scene;
+    // vị trí
     this.x = x;
     this.y = y;
+    // vị trí muốn tới
+    this.targetObj = null;
+    // object player chứa physic
     this.playerObj = null;
 
     this.init();
   }
 
   init() {
+    // target object - tạo trước player để nó được vẽ trước player => ko đè lên player
+    this.targetObj = this.scene.add.image(this.x, this.y, 'BlueDot');
+
+    // player object
     this.playerObj = this.scene.physics.add.image(0, 0, 'Yasuo');
     this.playerObj.setScale(0.5, 0.5);
     this.playerObj.body.setCircle(60);
@@ -29,14 +38,15 @@ export default class Player {
 
     this.scene.physics.add.collider([this.playerObj]);
 
+    // move player
     const moveToInstance = this.scene.plugins
       .get('rexMoveTo')
       .add(this.playerObj, { speed: 200 });
+
     this.scene.input.on(Phaser.Input.Events.POINTER_DOWN, (pointer) => {
-      this.x = pointer.x;
-      this.y = pointer.y;
-      moveToInstance.moveTo(this.x, this.y);
-      console.log('Moving to: ', this.x, this.y);
+      const { worldX, worldY } = pointer;
+      this.targetObj.setPosition(worldX, worldY);
+      moveToInstance.moveTo(worldX, worldY);
     });
   }
 
