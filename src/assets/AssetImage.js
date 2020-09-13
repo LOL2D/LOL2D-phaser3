@@ -4,6 +4,9 @@ import LolLogo from './images/logos/lol-logo.png';
 import GithubLogo from './images/logos/github-logo.png';
 import FacebookLogo from './images/logos/fb-logo.png';
 
+// backgrounds
+import DebugGridBackground from './images/backgrounds/debug-grid-1920x1920.png';
+
 // objects
 import BlueDot from './images/objects/blue.png';
 
@@ -21,6 +24,7 @@ export {
   LolLogo,
   GithubLogo,
   FacebookLogo,
+  DebugGridBackground,
   BlueDot,
   NormalCursor,
   FightCursor,
