@@ -32,7 +32,6 @@ export default class Player {
 
     // player object
     this.playerObj = this.scene.physics.add.image(0, 0, 'Yasuo');
-    this.playerObj.setScale(0.5, 0.5);
     this.playerObj.body.setCircle(60);
     this.playerObj.setPosition(this.x, this.y);
 
