@@ -2,16 +2,7 @@ import Phaser from 'phaser';
 
 export default class Player {
   constructor(config) {
-    const {
-      x = 0,
-      y = 0,
-      name = 'Player',
-      money = 0,
-      items = [],
-      level = 1,
-      exp = 0,
-      scene,
-    } = config;
+    const { x = 0, y = 0, scene } = config;
 
     // scene chứa player
     this.scene = scene;
@@ -49,9 +40,10 @@ export default class Player {
     });
   }
 
-  control() {}
-
-  update() {}
+  // eslint-disable-next-line class-methods-use-this
+  update() {
+    // todo:
+  }
 
   setChampion(champion) {
     this.champion = champion;

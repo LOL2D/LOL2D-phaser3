@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { SCENES, FONTS, COLORS } from '../constants';
+import { SCENES, COLORS } from '../constants';
 import { NormalCursor } from '../../assets/AssetImage';
 import Player from '../classes/Player';
 
@@ -63,6 +63,7 @@ export default class InGame extends Phaser.Scene {
         Phaser.Math.Between(-120, 120)
       );
       newObj.body.setCircle(60);
+      newObj.setCollideWorldBounds(true, 1, 1);
     }
   }
 

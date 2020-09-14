@@ -1,1 +1,3 @@
-export { Ahri } from './Ahri.js';
+export { Ahri } from './Ahri';
+
+export default {};

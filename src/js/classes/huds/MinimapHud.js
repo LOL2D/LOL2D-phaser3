@@ -1,3 +1,5 @@
-class MinimapHud {
-  constructor() {}
+export class MinimapHud {
+  // constructor() {}
 }
+
+export default MinimapHud;

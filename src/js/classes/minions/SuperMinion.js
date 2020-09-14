@@ -1,6 +1,8 @@
 // https://leagueoflegends.fandom.com/wiki/Super_minion
-import { Minion } from './Minion.js';
+import { Minion } from './Minion';
 
-export default class SuperMinion extends Minion {
-  constructor() {}
+export class SuperMinion extends Minion {
+  // constructor() {}
 }
+
+export default SuperMinion;

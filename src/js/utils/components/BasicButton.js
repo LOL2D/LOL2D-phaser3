@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-export default class BasicButton extends Phaser.GameObjects.Sprite {
+export class BasicButton extends Phaser.GameObjects.Sprite {
   constructor({ scene, key, up, over, down, x, y }) {
     // call the constructor of the parent
     // set at 0,0 in case there is no x and y
@@ -37,3 +37,5 @@ export default class BasicButton extends Phaser.GameObjects.Sprite {
     this.setFrame(this.frames.up);
   }
 }
+
+export default BasicButton;

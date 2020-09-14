@@ -1,7 +1,7 @@
 import { Ability } from './Ability';
-import { Constants } from '../../stores/Constants';
+import { TYPES } from '../../constants';
 
-class OrbOfDeception extends Ability {
+export class OrbOfDeception extends Ability {
   constructor(config = {}) {
     const { stats = OrbOfDeception.default.stats, owner } = config;
 
@@ -10,7 +10,8 @@ class OrbOfDeception extends Ability {
 
   fire() {
     if (this.isAvailable()) {
-      alert('Ahri Q fired');
+      // eslint-disable-next-line no-console
+      console.log('Ahri Q fired');
     }
   }
 
@@ -35,12 +36,12 @@ OrbOfDeception.default = {
     width: 180,
     speed: 1700,
     const: [65, 70, 75, 80, 85],
-    constType: Constants.Mana,
+    constType: TYPES.Mana,
     coolDown: 7,
     damage: [40, 65, 90, 115, 140],
     additionalDamage: 35,
-    additionalDamageType: Constants.AP,
+    additionalDamageType: TYPES.AP,
   },
 };
 
-export { OrbOfDeception };
+export default OrbOfDeception;

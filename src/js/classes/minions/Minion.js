@@ -1,4 +1,6 @@
 // https://leagueoflegends.fandom.com/wiki/Minion
-export default class Minion {
-  constructor() {}
+export class Minion {
+  // constructor() {}
 }
+
+export default Minion;

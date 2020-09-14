@@ -1,4 +1,4 @@
-class PlayerHud {
-  constructor(player) {}
+export class PlayerHud {
+  // constructor(player) {}
 }
-export { PlayerHud };
+export default PlayerHud;

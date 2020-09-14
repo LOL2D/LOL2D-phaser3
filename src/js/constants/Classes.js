@@ -1,5 +1,5 @@
 // https://leagueoflegends.fandom.com/wiki/Champion_classes
-const Classes = {
+export const CLASSES = {
   Controller: {
     vi: 'Hỗ trợ',
     image: '',
@@ -92,4 +92,4 @@ const Classes = {
   },
 };
 
-export { Classes };
+export default CLASSES;

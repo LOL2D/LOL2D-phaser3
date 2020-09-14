@@ -1,1 +1,3 @@
-export { DoranRing } from './DoranRing.js';
+export { DoranRing } from './DoranRing';
+
+export default {};

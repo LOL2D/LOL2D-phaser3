@@ -1,8 +1,8 @@
-import { Classes } from './Classes';
+import { CLASSES } from '../../constants';
 import { Champion } from './Champion';
 import { OrbOfDeception } from '../abilities';
 
-export default class Ahri extends Champion {
+export class Ahri extends Champion {
   constructor(config = {}) {
     const {
       skin = Ahri.default.skins.default,
@@ -13,21 +13,9 @@ export default class Ahri extends Champion {
     super({ skin, stats, abilities });
   }
 
-  // test
   Q() {
     this.abilities.q.fire();
   }
-
-  getLevel() {
-    return 1;
-  }
-  // --- end test
-
-  getDefault() {
-    return Ahri.default;
-  }
-
-  show() {}
 }
 
 // static properties
@@ -35,8 +23,8 @@ Ahri.default = {
   info: {
     name: 'Ahri',
     nameVietNamese: 'Hồ Ly Chín Đuôi',
-    classes: Classes.Mage,
-    subClasses: [Classes.Mage.subs.Burst],
+    classes: CLASSES.Mage,
+    subClasses: [CLASSES.Mage.subs.Burst],
     homeTown: 'Ionia',
     link: 'https://leagueoflegends.fandom.com/wiki/Ahri',
     price: 4800,
@@ -99,3 +87,5 @@ Ahri.default = {
     r: null,
   },
 };
+
+export default Ahri;

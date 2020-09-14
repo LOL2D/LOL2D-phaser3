@@ -1,15 +1,11 @@
-import { Constants } from '../../stores/Constants';
+import { TYPES } from '../../constants';
 
-class Ability {
+export class Ability {
   constructor({ owner, stats }) {
-    this.type = Constants.Ability;
+    this.type = TYPES.Ability;
     this.owner = owner;
     this.stats = this.getStats(stats);
   }
-
-  getStats(statsObj) {
-    return { ...statsObj };
-  }
 }
 
-export { Ability };
+export default Ability;

@@ -1,4 +1,6 @@
-export { MeleMinion } from './MeleMinion';
-export { CasterMinion } from './CasterMinion.js';
-export { SiegeMinion } from './SiegeMinion.js';
-export { SuperMinion } from './SuperMinion.js';
+export { MeleeMinion } from './MeleeMinion';
+export { CasterMinion } from './CasterMinion';
+export { SiegeMinion } from './SiegeMinion';
+export { SuperMinion } from './SuperMinion';
+
+export default {};
