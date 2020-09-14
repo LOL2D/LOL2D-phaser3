@@ -1,4 +1,2 @@
-import pixelFontPng from './fonts/pixel-shadow/font.png';
-import pixelFontXml from './fonts/pixel-shadow/font.xml';
-
-export { pixelFontPng, pixelFontXml };
+export * as pixelFontPng from './fonts/pixel-shadow/font.png';
+export * as pixelFontXml from './fonts/pixel-shadow/font.xml';
