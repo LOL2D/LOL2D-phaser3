@@ -1,4 +1,4 @@
-import { CLASSES } from '../../constants';
+import { CLASSES } from '../../helpers/constants';
 import { Champion } from './Champion';
 import { OrbOfDeception } from '../abilities';
 

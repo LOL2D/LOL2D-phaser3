@@ -1,4 +1,4 @@
-export const Constants = {
+export const TYPES = {
   // Nhân vật
   Champion: 'Champion',
   Minion: 'Minion',
@@ -21,4 +21,4 @@ export const Constants = {
   Wall: 'Wall',
 };
 
-export default Constants;
+export default TYPES;

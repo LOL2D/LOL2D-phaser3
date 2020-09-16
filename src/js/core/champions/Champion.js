@@ -1,5 +1,5 @@
 // https://leagueoflegends.fandom.com/wiki/List_of_champions
-import { TYPES } from '../../constants';
+import { TYPES } from '../../helpers/constants';
 
 export class Champion {
   constructor({ skin, stats, abilities }) {

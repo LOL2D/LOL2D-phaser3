@@ -1,5 +1,5 @@
 import { Ability } from './Ability';
-import { TYPES } from '../../constants';
+import { TYPES } from '../../helpers/constants';
 
 export class OrbOfDeception extends Ability {
   constructor(config = {}) {

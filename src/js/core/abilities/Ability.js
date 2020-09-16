@@ -1,4 +1,4 @@
-import { TYPES } from '../../constants';
+import { TYPES } from '../../helpers/constants';
 
 export class Ability {
   constructor({ owner, stats }) {

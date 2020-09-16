@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { SCENES, FONTS, COLORS } from '../constants';
+import { SCENES, FONTS, COLORS } from '../helpers/constants';
 
 import * as Assets from '../../assets/AssetImage';
 

@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
-import { SCENES, COLORS } from '../constants';
+import { SCENES, COLORS } from '../helpers/constants';
 import { NormalCursor } from '../../assets/AssetImage';
-import Player from '../classes/Player';
+import Player from '../core/Player';
 
 export default class InGame extends Phaser.Scene {
   constructor() {
