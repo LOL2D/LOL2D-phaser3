@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
-import rexPlugins from './utils/RexPlugins';
+import rexPlugins from './helpers/RexPlugins';
 
-import { SCENES, COLORS } from './constants';
+import { SCENES, COLORS } from './helpers/constants';
 import { Boot, Preloader, MainMenu, InGame } from './scenes';
 
 export default class App {
