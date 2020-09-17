@@ -1,4 +1,4 @@
-import { CLASSES } from '../../helpers/constants';
+import { CHAMPIONCLASSES } from '../../helpers/constants';
 import { Champion } from './Champion';
 import { OrbOfDeception } from '../abilities';
 
@@ -23,8 +23,8 @@ Ahri.default = {
   info: {
     name: 'Ahri',
     nameVietNamese: 'Hồ Ly Chín Đuôi',
-    classes: CLASSES.Mage,
-    subClasses: [CLASSES.Mage.subs.Burst],
+    classes: CHAMPIONCLASSES.Mage,
+    subClasses: [CHAMPIONCLASSES.Mage.subs.Burst],
     homeTown: 'Ionia',
     link: 'https://leagueoflegends.fandom.com/wiki/Ahri',
     price: 4800,
