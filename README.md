@@ -1,4 +1,4 @@
-# [PAUSED] LOL2D
+# [PAUSED] LOL2D - Phaser 3
 
 - Repo này được viết bằng [Phaser3](https://phaser.io/phaser3) và đang được **tạm dừng**
 - Đội ngũ phát triển (hiện tại có **mỗi 1 người** là [mình](https://github.com/hoangtran0410) :cry:)  đang tập trung phát triển [LOL2D Core](https://github.com/LOL2D/LOL2D_core)
