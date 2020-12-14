@@ -1,10 +1,10 @@
-import { Scene } from 'phaser';
-import { SCENES, FONTS } from '../constants';
+import Phaser from 'phaser';
+import { SCENES, FONTS } from '../helpers/constants';
 
 import { LolLogo } from '../../assets/AssetImage';
 import { pixelFontPng, pixelFontXml } from '../../assets/AssetFont';
 
-export default class Boot extends Scene {
+export default class Boot extends Phaser.Scene {
   constructor() {
     super({ key: SCENES.BOOT });
   }

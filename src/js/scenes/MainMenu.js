@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { NormalCursor, FightCursor } from '../../assets/AssetImage';
-import { SCENES, FONTS, COLORS } from '../constants';
+import { SCENES, FONTS, COLORS } from '../helpers/constants';
 
 export default class MainMenu extends Phaser.Scene {
   constructor() {
@@ -22,6 +22,8 @@ export default class MainMenu extends Phaser.Scene {
 
     // button
     this.createStartButton();
+
+    this.scene.start(SCENES.INGAME);
   }
 
   createStartButton() {
