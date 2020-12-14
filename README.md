@@ -1,4 +1,4 @@
-# LOL2D
+# LOL2D - Phaser 3
 
 ## Features có thể có trong v2 - luôn cập nhật ý tưởng từ các bạn:
 
