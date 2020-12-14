@@ -22,6 +22,8 @@ export default class MainMenu extends Phaser.Scene {
 
     // button
     this.createStartButton();
+
+    this.scene.start(SCENES.INGAME);
   }
 
   createStartButton() {
