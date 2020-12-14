@@ -1,6 +1,17 @@
-# LOL2D - Phaser 3
+# [PAUSED] LOL2D
 
-## Features có thể có trong v2 - luôn cập nhật ý tưởng từ các bạn:
+- Repo này đang được **tạm dừng**
+- Đội ngũ phát triển (hiện tại có **mỗi 1 người** là [mình](https://github.com/hoangtran0410) :cry:)  đang tập trung phát triển [LOL2D Core](https://github.com/LOL2D/LOL2D_core)
+- LOL2D Core là repo được code lại bằng [p5js](https://p5js.org/) :grin:
+- LOL2D Core được chau chuốt đẹp đẽ sạch sẽ, clean code, naming convention, .... các thứ :stuck_out_tongue_closed_eyes: 
+- Đảm bảo sẽ là **nền tảng vững chắc** để sau này có thể phát triển game bằng các game engine khác :star2: :cupid:
+- Những kinh nghiệm rút ra được từ repo này đang được áp dụng để **phát triển  Repo mới** [link github](https://github.com/LOL2D/LOL2D_core)  :yum: :heart_eyes:
+
+Hãy follow mình và watch [repo](https://github.com/LOL2D/LOL2D_core) để có thể cập nhật được những feature mới nhất nhé :heartpulse: :star: :boom:
+
+## OLD README
+
+### Features có thể có trong v2 - luôn cập nhật ý tưởng từ các bạn:
 
 > Ý tưởng là ý tưởng, còn làm được hay không thì thời gian trả lời nhé :
 
