@@ -1,35 +1,27 @@
 import Phaser from 'phaser'
 
+import WebFontFile from '~/utils/WebFontFile'
+
 export default class HelloWorldScene extends Phaser.Scene {
     constructor() {
         super('hello-world')
     }
 
     preload() {
-        this.load.setBaseURL('http://labs.phaser.io')
-
-        this.load.image('sky', 'assets/skies/space3.png')
-        this.load.image('logo', 'assets/sprites/phaser3-logo.png')
-        this.load.image('red', 'assets/particles/red.png')
+        const fonts = new WebFontFile(this.load, 'Roboto Mono')
+        this.load.addFile(fonts)
     }
 
     create() {
-        this.add.image(400, 300, 'sky')
+        const x = this.scale.width * 0.5
+        const y = this.scale.height * 0.5
 
-        const particles = this.add.particles('red')
-
-        const emitter = particles.createEmitter({
-            speed: 100,
-            scale: { start: 1, end: 0 },
-            blendMode: 'ADD',
-        })
-
-        const logo = this.physics.add.image(400, 100, 'logo')
-
-        logo.setVelocity(100, 200)
-        logo.setBounce(1, 1)
-        logo.setCollideWorldBounds(true)
-
-        emitter.startFollow(logo)
+        this.add
+            .text(x, y, 'Bầu trời trong xanh thăm thẳm, không một gợn mây!', {
+                fontFamily: 'Roboto Mono',
+                fontSize: '13px',
+                color: '#fff',
+            })
+            .setOrigin(0.5, 0.5)
     }
 }
