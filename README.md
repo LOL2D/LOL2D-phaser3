@@ -1,68 +1,136 @@
-# [PAUSED] LOL2D - Phaser 3
+![phaser3-parceljs-template](https://user-images.githubusercontent.com/2236153/71606463-37a0da80-2b2e-11ea-9b5f-5d26ccc84f91.png)
 
-- Repo này được viết bằng [Phaser3](https://phaser.io/phaser3) và đang được **tạm dừng**
-- Đội ngũ phát triển (hiện tại có **mỗi 1 người** là [mình](https://github.com/hoangtran0410) :cry:)  đang tập trung phát triển [LOL2D Core](https://github.com/LOL2D/LOL2D_core)
-	- LOL2D Core là repo được code lại bằng [p5js](https://p5js.org/) :grin:
-	- LOL2D Core được chau chuốt đẹp đẽ sạch sẽ, clean code, naming convention, .... các thứ :stuck_out_tongue_closed_eyes: 
-	- Đảm bảo sẽ là **nền tảng vững chắc** để sau này có thể phát triển game bằng các game engine khác :star2: :cupid:
-- Những kinh nghiệm rút ra được từ repo này đang được áp dụng để **phát triển  Repo mới** [link github](https://github.com/LOL2D/LOL2D_core)  :yum: :heart_eyes:
+# Phaser 3 + TypeScript + Parcel Template
+> For people who want to spend time making Phaser 3 games in TypeScript instead of configuring build tools.
 
-Hãy follow mình và watch [repo](https://github.com/LOL2D/LOL2D_core) để có thể cập nhật được những feature mới nhất nhé :heartpulse: :star: :boom:
+![License](https://img.shields.io/badge/license-MIT-green)
 
+This is a TypeScript specific fork of [phaser3-parcel-template](https://github.com/ourcade/phaser3-parcel-template).
 
-## OLD README
+## Prerequisites
 
-### Features có thể có trong v2 - luôn cập nhật ý tưởng từ các bạn:
+You'll need [Node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com/), and [Parcel](https://parceljs.org/) installed.
 
-> Ý tưởng là ý tưởng, còn làm được hay không thì thời gian trả lời nhé :
+It is highly recommended to use [Node Version Manager](https://github.com/nvm-sh/nvm) (nvm) to install Node.js and npm.
 
-- Khoe thông thạo , Chat, Hệ thống icon cảm xúc
-- Tạo phòng chơi với bạn bè
-- Game với nhiều mode:
+For Windows users there is [Node Version Manager for Windows](https://github.com/coreybutler/nvm-windows).
 
-  - Mode thường: chọn ẩn (5v5)
-  - Mode xếp hạng: cấm chọn (5v5)
+Install Node.js and `npm` with `nvm`:
 
-- Mode tự tạo tướng: khi chọn tướng thì chọn luôn chiêu thức để ghép vào (ca này khó, chiêu thức dùng mana ghép vào tướng dùng nội năng thì sao?)
-- Team vs bot (5v5) (3v3) (custom) - custom: số người chơi có thể Ít hơn
-- Team vs team (5v5) (3v3) (custom)
-- Team vs boss (5vboss) (custom)
+```bash
+nvm install node
 
-  - boss là người
-  - boss là bot
+nvm use node
+```
 
-- Battle royale: Sinh tồn nhặt tiền, trang bị như pubg
+Replace 'node' with 'latest' for `nvm-windows`.
 
-  - Có hệ thống cửa hàng rải rác: trao đổi, mua bán vật phẩm nhặt được
-  - Có thể phá huỷ cửa hàng khi trao đổi xong !!!??? (cần nghĩ lại)
+Then install Parcel:
 
-- Urf, training với bạn (mode này sẽ khá khó do chiêu dùng liên tục mà vẫn phải online fps cao)
-- Mode 1 cho tất cả
+```bash
+npm install -g parcel-bundler
+```
 
-  - 1 tướng cho cả 2 team
-  - mỗi team 1 tướng
+## Getting Started
 
-- Mode luyện né chiêu: mình ở trong 1 cái lồng, và rất nhiều bot xung quanh lồng bắn chiêu vào.
-- Mod training tướng (một mình với bot)
+Clone this repository to your local machine:
 
-  - Có thể đổi tướng trực tiếp khi đang trong game, không cần thoát game chọn tướng khác rồi vào lại
+```bash
+git clone https://github.com/ourcade/phaser3-typescript-parcel-template.git
+```
 
-- Game với nhiều bản đồ
+This will create a folder named `phaser3-typescript-parcel-template`. You can specify a different folder name like this:
 
-  - Summoner rift
-  - Howling Abyss - vực gió hú
-  - Battle royale world - thế giới mở cho mode Battle royale
+```bash
+git clone https://github.com/ourcade/phaser3-typescript-parcel-template.git my-folder-name
+```
 
-- Giao diện cài đặt
+Go into your new project folder and install dependencies:
 
-  - Chỉnh phím nóng
-  - Tỉ lệ hud, Ví trí hud (bản đồ nhỏ bên trái, ...), ẩn hud
+```bash
+cd phaser3-typescript-parcel-template # or 'my-folder-name'
+npm install
+```
 
-- Giao diện chọn tướng
+Start development server:
 
-  - Chọn tướng bình thường
-  - Chọn tướng và chọn chiêu để ghép
+```
+npm run start
+```
 
-- Giao diện cửa hàng khi đang trong game (game thường)
-- Giao diện cửa hàng khi đang trong game (battle royale)
-- Và ý tưởng từ các bạn ....
+To create a production build:
+
+```
+npm run build
+```
+
+Production files will be placed in the `dist` folder. Then upload those files to a web server. 🎉
+
+## Project Structure
+
+```
+    .
+    ├── dist
+    ├── node_modules
+    ├── public
+    ├── src
+    │   ├── scenes
+    │   │   ├── HelloWorldScene.ts
+    │   ├── index.html
+    │   ├── main.ts
+    ├── package.json
+```
+
+The contents of this template is the basic [Phaser 3 getting started example](http://phaser.io/tutorials/getting-started-phaser3/part5).
+
+This template assumes you will want to organize your code into multiple files and use TypeScript.
+
+TypeScript files are intended for the `src` folder. `main.ts` is the entry point referenced by `index.html`.
+
+Other than that there is no opinion on how you should structure your project. There is a `scenes` folder in `src` where the `HelloWorldScene.ts` lives but you can do whatever you want.
+
+## Static Assets
+
+Any static assets like images or audio files should be placed in the `public` folder. It'll then be served at http://localhost:8000/images/my-image.png
+
+Example `public` structure:
+
+```
+    public
+    ├── images
+    │   ├── my-image.png
+    ├── music
+    │   ├── ...
+    ├── sfx
+    │   ├── ...
+```
+
+They can then be loaded by Phaser with `this.image.load('my-image', 'images/my-image.png')`.
+
+## TypeScript ESLint
+
+This template uses a basic `typescript-eslint` set up for code linting.
+
+It does not aim to be opinionated.
+
+## Dev Server Port
+
+You can change the dev server's port number by modifying the `start` script in `package.json`. We use Parcel's `-p` option to specify the port number.
+
+The script looks like this:
+
+```
+parcel src/index.html -p 8000
+```
+
+Change 8000 to whatever you want.
+
+## Other Notes
+
+[parcel-plugin-clean-easy](https://github.com/lifuzhao100/parcel-plugin-clean-easy) is used to ensure only the latest files are in the `dist` folder. You can modify this behavior by changing `parcelCleanPaths` in `package.json`.
+
+[parcel-plugin-static-files](https://github.com/elwin013/parcel-plugin-static-files-copy#readme) is used to copy static files from `public` into the output directory and serve it. You can add additional paths by modifying `staticFiles` in `package.json`.
+
+## License
+
+[MIT License](https://github.com/ourcade/phaser3-typescript-parcel-template/blob/master/LICENSE)
